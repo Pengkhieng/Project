@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="testing.css">
+</head>
+<body>
+    <div class="menu">
+        <ul>
+            <li><a href="#" id="btn"><i class="fas fa-bars"></i></a></li>
+            <li><a href="">Home</a></li>
+            <li><a href="">Video</a></li>
+            <li><a href="">Video</a></li>
+            <li><a href="">Television</a></li>
+        </ul>
+    </div>
+    <div class="slide-menu">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">House</a></li>
+            <li><a href="">School</a></li>
+            <li><a href="">Garden</a></li>
+            <li><a href="">Bar</a></li>
+        </ul>
+    </div>
+
+    <input type="button" name="" value="append" id="btnap">
+    <input type="button" name="" value="preppend" id="btnprep">
+    <input type="button" name="" value="remove" id="btnrm">
+    <input type="button" name="" value="empty" id="btnempty">
+    <input type="button" name="" value="before" id="btnbefore">
+    <input type="button" name="" value="after" id="btnafter">
+    <div class="contain">
+        <div class="box1">Demo1</div>
+        <div class="box2">Demo2</div>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        var box = '<div class="box"></div>';
+        // popup slide menu
+        $('#btn').click(function(){
+            var popup = '<div class="popup"></div>';
+           $('.slide-menu').css({"left":"0"});
+           $('body').append(popup);
+        });
+        // unpopup slide menu
+        $('body').on('click', ".popup",function(){
+            $('.slide-menu').css({"left":"-300px"});
+           $(this).remove();
+        });
+        // append
+        $('#btnap').click(function(){
+            $('.contain').append(box);
+        });
+        // prepend
+        $('#btnprep').click(function(){
+            $('.contain').prepend(box);
+        });
+        // after
+        $('#btnafter').click(function(){
+            $('.box2').after(box);
+        });
+        // before
+        $('#btnbefore').click(function(){
+            $('.box2').before(box);
+        });
+        // remove
+        $('#btnrm').click(function(){
+            $('.contain').remove();
+        });
+        // empty
+        $('#btnempty').click(function(){
+            $('.contain').empty();
+        });
+        // remove box when click your self
+        $('body').on('click',".box",function()
+        {
+            $(this).remove();
+        });
+    });
+
+        
+
+</script>
+</html>

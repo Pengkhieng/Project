@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.2.1.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .container {
+        width: 400px;
+        height: 100vh;
+        padding: 10px;
+        display: flex;
+
+        background-color: gray;
+    }
+    .container ul
+    {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+    .container ul li
+    {
+        width: 100%;
+        float: left;
+    }
+    .container ul li a
+    {
+        display: block;
+        padding: 8px;
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+
+    }
+    .container ul li a:hover
+    {
+        color: white;
+        background-color: red;
+    }
+    .submenu
+    {
+        width: 80%;
+        padding-left: 20%;
+    }
+    .submenu ul li a
+    {
+        color: rgb(255, 255, 255);
+        background-color: rgb(119, 118, 118);
+    }
+    .submenu ul li a:hover
+    {
+        color: rgb(30, 255, 0);
+        background-color: red;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="menu">
+            <ul>
+                <!-- <li><a href="">Home</a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="">One</a></li>
+                            <li><a href="">Two</a></li>
+                            <li><a href="">Three</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">Home1</a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="">One11</a></li>
+                            <li><a href="">Two11</a></li>
+                            <li><a href="">Three11</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">Home2</a>
+                    <div class="submenu">
+                        <ul>
+                            <li><a href="">One22</a></li>
+                            <li><a href="">Two22</a></li>
+                            <li><a href="">Three22</a></li>
+                        </ul>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function()
+    {
+        var myleftMenu = {
+            "Home":["One","Two","Three"],
+            "Home11":["One11","Two11","Three11"],
+            "Home22":["One22","Two22","Three22"],
+        };
+        getmenu();
+        function getmenu(){
+            var txt = '';
+            for(key in myleftMenu){
+                var txt1 ='';
+                for(i in myleftMenu[key]){
+                    txt1 += '<li><a>'+myleftMenu[key][i]+'</a></li>';
+                    }
+                var submenu = '<div class="submenu"><ul>'+txt1+'</ul></div>';
+                txt += '<li><a>'+key+'</a>'+submenu+'</li>';
+                
+            }
+            $('.menu').find('ul').html(txt);
+        };
+    });
+</script>
+</html>

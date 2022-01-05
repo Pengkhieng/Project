@@ -38,8 +38,8 @@
     }
     .menu ul li a:hover
     {
-        background-color: rgb(241, 219, 215);
-        color: rebeccapurple;
+        background-color: rgb(5, 44, 116);
+        color: rgb(255, 255, 255);
     }
     .menu ul li .sub-menu
     {
@@ -47,8 +47,8 @@
     }
     .menu ul li .sub-menu ul
     {
-        width: 80%;
-        margin-left: 20%;
+        width: 70%;
+        margin-left: 30%;
     }
     .menu ul li .sub-menu ul li a{
         background-color: rgb(71, 129, 255);
@@ -99,20 +99,35 @@
             "Drinks":["milk","Orange juice"],
             "Vegetable":["Carrots","Broccoli","Garlic","Kale"],
         };
+        
         getmenu();
+        // function getmenu(){
+        // var txt='';
+        // for(key in myMenu)
+        // {
+        //     var txt1 ='';
+        //     for(x in myMenu[key])
+        //     {
+        //         txt1+= '<li><a>'+myMenu[key][x]+'</a></li>';
+        //     }
+        //     var Submenu = '<div class="sub-menu"><ul>'+txt1+'</ul></div>';
+        //   txt += '<li><a>'+key+'</a>'+Submenu+'</li>'; 
+        // };
+        // $('.menu').find('ul').html(txt);
+        // };
         function getmenu(){
-        var txt='';
-        for(key in myMenu)
-        {
-            var txt1 ='';
-            for(x in myMenu[key])
+            var txt= '';
+            for(key in myMenu)
             {
-                txt1+= '<li><a>'+myMenu[key][x]+'</a></li>';
+                var txt1 ='';
+                for(x in myMenu[key])
+                {
+                    txt1 +='<li><a>'+myMenu[key][x]+'</a></li>';
+                }
+                var submenu = '<div class="sub-menu"><ul>'+txt1+'</ul></div>';
+                txt +='<li><a>'+key+'</a>'+submenu+'</li>';
             }
-            var Submenu = '<div class="sub-menu"><ul>'+txt1+'</ul></div>';
-          txt += '<li><a>'+key+'</a>'+Submenu+'</li>'; 
-        };
-        $('.menu').find('ul').html(txt);
+            $('.menu').find('ul').html(txt);
         };
        
     });

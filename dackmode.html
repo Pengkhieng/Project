@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.2.1.min.js"> </script>
+</head>
+<style>
+    .button
+    {
+        width: 80px;
+        padding: 2px;
+        height: 30px;
+        border-radius: 20px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        border: 2px solid black;
+    }
+    .button .box
+    {
+        width: 30px;
+        height: 100%;
+        border-radius: 50%;
+        background-color:black;
+
+    }
+    .box1
+    {
+        border: 1px solid red;
+        width: 100Px;
+        height: 100px;
+       
+    }
+  
+</style>
+<body>
+    <div class="button">
+        <div class="box"></div>
+    </div>
+    <div class="hello">
+    </div>
+</body>
+<script>
+$(document).ready(function(){
+    var n=0;
+
+    $('.button').click(function()
+    {
+        if(n==0)
+        {
+       $("*").css({"background-color":"black","color":"white"});
+        $('.box').css({"float":"right","background-color":"white"});
+        $('.button').css("border","2px solid  white");
+        n=1;
+        }else
+        {
+       $("*").css("background-color","white");
+        $('.box').css({"float":"left","background-color":"black"});
+        $('.button').css("border","2px solid  black");
+        
+        n=0;
+        }
+    });
+});
+</script>
+
+</html>
